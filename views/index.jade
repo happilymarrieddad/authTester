@@ -1,0 +1,54 @@
+doctype
+html
+	head
+		title= title
+		link(rel='stylesheet',href='//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/spacelab/bootstrap.min.css')
+	body
+
+		div#loading-page
+			img(src='/images/fusiontms.gif',alt='Loading Image',style='position: absolute; margin:auto; left:0; right:0; top:0; bottom:0')
+
+		div#whole-page(style="display:none")
+
+			nav.navbar.navbar-inverse.navbar-fixed-top(style="background-image:none;background-color:black;border-color:black")
+				div.navbar-inner
+					div.container
+						div.navbar-header
+							button.navbar-toggle(type="button",data-toggle="collapse",data-target="#navbar-collapse-1",aria-expanded="false")
+								span.sr-only Toggle navigation
+								span.icon-bar
+								span.icon-bar
+								span.icon-bar
+						div#navbar-collapse-1.collapse.navbar-collapse
+							ul.nav.navbar-nav
+								li
+									a(href="#/home") Home
+								li
+									a(href="#/about") About
+							ul.nav.navbar-nav.navbar-right
+								li.dropdown
+									a.dropdown-toggle(href="#",data-toggle="dropdown",role="button",aria-haspopup="true",aria-expended="false")
+										span.username
+										span.caret
+									ul.dropdown-menu
+										li
+											a.logout(href="#/login") Logout
+
+			div.containter-fluid(style="margin-top:50px")
+				div.row
+					div.col-md-12
+						section(data-route="home",style="display:none")
+							include ./home
+						section(data-route="about",style="display:none")
+							include ./about
+						section(data-route="login",style="display:none")
+							include ./login
+
+		script(type='text/javascript',src='//code.jquery.com/jquery-2.1.4.min.js')
+		script(type='text/javascript',src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+		script(type='text/javascript',src='//cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.min.js')
+		
+		script(type='text/javascript',src='/js/socketcluster.js')
+		script(type='text/javascript',src='/js/templates.js')
+
+		script(type='text/javascript',src='/js/app.js')
